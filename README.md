@@ -8,10 +8,11 @@
 
 *HiCache++ replaces HiCache's polynomial forecast basis with a Dynamic-Mode-Decomposition (Prony) **exponential** basis — exact on the class diffusion features actually live in, so it stays lossless at larger skip intervals than the polynomial. HiCache (Hermite) is kept as the in-fork comparison baseline.*
 
-![training&#8209;free](https://img.shields.io/badge/training--free-%E2%9C%93-2e8f5c)
-&nbsp;![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)
-&nbsp;![Hunyuan3D&#8209;2.1](https://img.shields.io/badge/base-Hunyuan3D--2.1-d96902)
-&nbsp;![arXiv](https://img.shields.io/badge/HiCache-arXiv%3A2508.16984-b5212f?logo=arxiv)
+[![base: Hunyuan3D-2.1](https://img.shields.io/badge/base-Hunyuan3D--2.1-d96902)](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1)
+&nbsp;[![arXiv: Hunyuan3D-2.1](https://img.shields.io/badge/arXiv-2506.15442-b5212f?logo=arxiv)](https://arxiv.org/abs/2506.15442)
+&nbsp;[![arXiv: HiCache](https://img.shields.io/badge/arXiv-2508.16984-b5212f?logo=arxiv)](https://arxiv.org/abs/2508.16984)
+&nbsp;[![license: Tencent Hunyuan 3D 2.1 Community](https://img.shields.io/badge/license-Tencent%20Hunyuan%203D%202.1%20Community-2e6db0)](./LICENSE)
+&nbsp;![basis: exponential (DMD/Prony)](https://img.shields.io/badge/basis-exponential%20(DMD%2FProny)-7a5cc6)
 
 </div>
 
