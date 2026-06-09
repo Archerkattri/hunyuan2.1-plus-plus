@@ -28,7 +28,7 @@ base generator, and the `+` / `++` suffix is a **method choice**, not a rival pr
 | Hunyuan3D-2 mini | `hunyuan2-plus` | `hunyuan2-plus-plus` |
 | SAM 3D Objects | `sam3d-plus` | `sam3d-plus-plus` |
 | Fast-SAM3D | `fastsam3d-plus` | `fastsam3d-plus-plus` |
-| DiT-XL/2 (ImageNet) | `dit-plus` | `dit-plus-plus` |
+| DiT-XL/2 (ImageNet) | `dit-plus` *(unreleased)* | `dit-plus-plus` *(unreleased)* |
 | TRELLIS (v1) | `faster-trellis` | `faster-trellis-plus-plus` |
 | TRELLIS.2-4B (v2) | `hermit-trellis2` | `hermit-trellis2-plus-plus` |
 
@@ -87,9 +87,9 @@ Both `enable_dmd` and `enable_hicache(backend="dmd")` just record the schedule; 
 
 ## Results
 
-At interval-5, HiCache++ (DMD) holds **F-score ≈ 0.83** where HiCache (Hermite) drops to **≈ 0.74** (uncached baseline ≈ 0.89) — Toys4K F-score@0.05, 3-seed, excluding one Go-ICP-degenerate sphere. **DMD's lead over Hermite grows with the skip interval**: the exponential basis is what extends the lossless skip range past the point where the polynomial collapses.
+At interval-5, HiCache++ (DMD) holds **F-score ≈ 0.86** where HiCache (Hermite) drops to **≈ 0.74** (uncached baseline ≈ 0.91) — Toys4K F-score@0.05, 3-seed, excluding one Go-ICP-degenerate sphere. **DMD's lead over Hermite grows with the skip interval**: the exponential basis is what extends the lossless skip range past the point where the polynomial collapses.
 
-For the full cross-model benchmarks (controlled forecast microbenchmark, Hunyuan3D-2.1, Hunyuan3D-2-mini, SAM3D, Fast-SAM3D) and the complete Hermite-vs-exponential tables, see the standalone library **[`hicache-plus-plus`](../hicache-plus-plus)**.
+For the full cross-model benchmarks (controlled forecast microbenchmark, Hunyuan3D-2.1, Hunyuan3D-2-mini, SAM3D, Fast-SAM3D) and the complete Hermite-vs-exponential tables, see the standalone library **[`hicache-plus-plus`](https://github.com/Archerkattri/hicache-plus-plus)**.
 
 ## Attribution
 
@@ -148,3 +148,12 @@ HiCache++ builds on the classical DMD / Prony / Matrix-Pencil spectral-estimatio
   volume={38}, number={5}, pages={814--824}, year={1990}
 }
 ```
+
+---
+
+## Family
+
+Part of the **HiCache++ acceleration family**.
+
+- **Family hub:** [`hicache-plus-plus`](https://github.com/Archerkattri/hicache-plus-plus) — the basis library behind this adapter.
+- **Sibling:** [`hunyuan2.1-plus`](https://github.com/Archerkattri/hunyuan2.1-plus) — the same base model with the HiCache (scaled-Hermite) polynomial-forecast variant.
