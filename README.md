@@ -90,6 +90,21 @@ At interval-5, HiCache++ (DMD) holds **F-score ≈ 0.86** where HiCache (Hermite
 
 For the full cross-model benchmarks (controlled forecast microbenchmark, Hunyuan3D-2.1, Hunyuan3D-2-mini, SAM3D, Fast-SAM3D) and the complete Hermite-vs-exponential tables, see the standalone library **[`hicache-plus-plus`](https://github.com/Archerkattri/hicache-plus-plus)**.
 
+
+### hicache-pp 1.2.0 alignment (2026-06-10)
+
+Two updates relative to [hicache-plus-plus 1.2.0](https://github.com/Archerkattri/hicache-plus-plus):
+
+- **Hermite comparison arm corrected.** The vendored Hermite forecast (the HiCache baseline
+  arm, also the DMD warm-up fallback) evaluated the basis at `x = -k`; corrected to `x = +k`
+  (the upstream TaylorSeer distance convention; `-k` flips every odd-order term). The
+  published numbers above were measured with the as-released code and remain valid
+  as-measured. The DMD arm itself is unaffected by the sign convention.
+- **Eigencache not yet vendored.** hicache-plus-plus 1.2.0 caches the DMD eigendecomposition
+  per compute window; the DMD fit vendored here still refits on every skipped step. That is
+  forecast-side latency overhead only (quality is identical); the standalone library ships
+  the cached fit, and porting it here is pending.
+
 ## Attribution
 
 - **Base model:** [Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) © Tencent — see [`PROJECT.md`](PROJECT.md) and [`LICENSE`](LICENSE) (Tencent Hunyuan 3D 2.1 Community License Agreement; note its territorial limits, large-user threshold, and no-competing-model-training restrictions). All Hunyuan3D-2.1 code, weights, and trademarks belong to Tencent.

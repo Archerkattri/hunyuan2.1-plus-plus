@@ -30,14 +30,14 @@ backward finite differences::
 
 At a skipped step ``k`` steps past the last compute step the velocity is::
 
-    F_hat_{t-k} = F_t + sum_{i=1}^{m} (Delta^i F_t / i!) * Htilde_i(-k)
+    F_hat_{t+k} = F_t + sum_{i=1}^{m} (Delta^i F_t / i!) * Htilde_i(k)
 
 with the dual-scaled physicist's Hermite polynomial (contraction ``sigma in (0,1)``)::
 
     Htilde_n(x) = sigma^n * H_n(sigma * x)
     H_0(x) = 1,  H_1(x) = 2x,  H_{n+1}(x) = 2 x H_n(x) - 2 n H_{n-1}(x)
 
-TaylorSeer is the special case where ``Htilde_i(-k)`` is the monomial ``(-k)^i``.
+TaylorSeer is the special case where ``Htilde_i(k)`` is the monomial ``k^i``.
 """
 from __future__ import annotations
 
@@ -174,7 +174,7 @@ def hicache_update_derivatives(state: Dict[str, Any], feature: torch.Tensor) -> 
 
 def hicache_forecast(state: Dict[str, Any]) -> torch.Tensor:
     """Scaled-Hermite forecast of the velocity at the current skip step:
-    ``F_hat = F_t + sum_{i>=1} (Delta^i F_t / i!) * Htilde_i(-k)`` where ``k`` is the
+    ``F_hat = F_t + sum_{i>=1} (Delta^i F_t / i!) * Htilde_i(k)`` where ``k`` is the
     number of steps since the last compute step. With <2 anchors this returns the
     cached velocity unchanged (the correct degenerate forecast)."""
     deriv = state["derivatives"]
@@ -184,7 +184,7 @@ def hicache_forecast(state: Dict[str, Any]) -> torch.Tensor:
     k = state["step"] - state["activated_steps"][-1]
     sigma = state["sigma"]
     base = deriv[0]
-    x = torch.tensor(float(-k), dtype=base.dtype, device=base.device)
+    x = torch.tensor(float(k), dtype=base.dtype, device=base.device)
 
     result = base
     order = 1
