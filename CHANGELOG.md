@@ -3,8 +3,9 @@
 All notable changes, per version. Auto-generated from git tags by
 `third_party/launch_materials/gen_changelogs.sh`; do not edit by hand.
 
-## Unreleased
+## v0.1.0 — 2026-06-11
 
+- docs: add per-version CHANGELOG (081ecce)
 - fix: corrected Hermite comparison arm to x = +k (hicache-pp 1.2.0 alignment) (2637847)
 - docs: drop unreleased dit-plus row from the family matrix (85c61de)
 - docs: standardize family README (hub link, method naming, attribution) (c90e976)
