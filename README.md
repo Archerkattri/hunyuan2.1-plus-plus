@@ -4,6 +4,12 @@
 
 # Hunyuan3D-2.1 + HiCache++
 
+<p>
+  <a href="https://github.com/Archerkattri/hunyuan2.1-plus-plus/releases"><img alt="Release" src="https://img.shields.io/github/v/release/Archerkattri/hunyuan2.1-plus-plus?color=1f6feb"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Archerkattri/hunyuan2.1-plus-plus?color=0d9488"></a>
+</p>
+
+
 **Tencent's Hunyuan3D-2.1 image/text-to-3D, accelerated by the HiCache++ *exponential* velocity cache on its DiT flow-matching loop.**
 
 *HiCache++ replaces HiCache's polynomial forecast basis with a Dynamic-Mode-Decomposition (Prony) **exponential** basis — exact on the class diffusion features actually live in, so it stays lossless at larger skip intervals than the polynomial. HiCache (Hermite) is kept as the in-fork comparison baseline.*
