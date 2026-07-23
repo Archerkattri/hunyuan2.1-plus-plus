@@ -6,6 +6,7 @@
 
 <p>
   <a href="https://github.com/Archerkattri/hunyuan2.1-plus-plus/releases"><img alt="Release" src="https://img.shields.io/github/v/release/Archerkattri/hunyuan2.1-plus-plus?color=1f6feb"></a>
+  <a href="https://github.com/Archerkattri/hunyuan2.1-plus-plus/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/Archerkattri/hunyuan2.1-plus-plus/total?label=downloads&color=1f6feb"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Archerkattri/hunyuan2.1-plus-plus?color=0d9488"></a>
 </p>
 
