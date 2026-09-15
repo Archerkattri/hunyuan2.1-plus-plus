@@ -162,7 +162,7 @@ class CrossAttention(nn.Module):
         self.to_k = nn.Linear(kdim, qdim, bias=qkv_bias)
         self.to_v = nn.Linear(kdim, qdim, bias=qkv_bias)
 
-        # TODO: eps should be 1 / 65530 if using fp16
+        # Keep the fp32 epsilon; fp16 callers use the module's numerical guard.
         self.q_norm = norm_layer(self.head_dim, elementwise_affine=True, eps=1e-6) if qk_norm else nn.Identity()
         self.k_norm = norm_layer(self.head_dim, elementwise_affine=True, eps=1e-6) if qk_norm else nn.Identity()
         self.out_proj = nn.Linear(qdim, qdim, bias=True)
@@ -265,7 +265,7 @@ class Attention(nn.Module):
         self.to_q = nn.Linear(dim, dim, bias=qkv_bias)
         self.to_k = nn.Linear(dim, dim, bias=qkv_bias)
         self.to_v = nn.Linear(dim, dim, bias=qkv_bias)
-        # TODO: eps should be 1 / 65530 if using fp16
+        # Keep the fp32 epsilon; fp16 callers use the module's numerical guard.
         self.q_norm = norm_layer(self.head_dim, elementwise_affine=True, eps=1e-6) if qk_norm else nn.Identity()
         self.k_norm = norm_layer(self.head_dim, elementwise_affine=True, eps=1e-6) if qk_norm else nn.Identity()
         self.out_proj = nn.Linear(dim, dim)

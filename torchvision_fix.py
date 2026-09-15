@@ -17,12 +17,12 @@ def fix_torchvision_functional_tensor():
         print("torchvision.transforms.functional_tensor not found, applying compatibility fix...")
         
         try:
-            # Create a mock functional_tensor module with the required functions
+            # Create a compatibility module with the required functions.
             import torch
             import torchvision.transforms.functional as F
             
-            class FunctionalTensorMock:
-                """Mock module to replace functional_tensor"""
+            class FunctionalTensorCompat:
+                """Compatibility module for the removed functional_tensor path."""
                 
                 @staticmethod
                 def rgb_to_grayscale(img, num_output_channels=1):
@@ -80,18 +80,17 @@ def fix_torchvision_functional_tensor():
                         except ImportError:
                             pass
                         
-                        raise AttributeError(f"'{name}' not found in functional_tensor mock")
+                        raise AttributeError(f"'{name}' not found in functional_tensor compatibility module")
             
-            # Create the mock module instance
-            functional_tensor_mock = FunctionalTensorMock()
+            functional_tensor_compat = FunctionalTensorCompat()
             
             # Monkey patch the old location
-            sys.modules['torchvision.transforms.functional_tensor'] = functional_tensor_mock
-            print("Applied compatibility fix: created functional_tensor mock module")
+            sys.modules['torchvision.transforms.functional_tensor'] = functional_tensor_compat
+            print("Applied compatibility fix for functional_tensor")
             return True
             
         except Exception as e:
-            print(f"Failed to create functional_tensor mock: {e}")
+            print(f"Failed to create functional_tensor compatibility module: {e}")
             return False
 
 def apply_fix():

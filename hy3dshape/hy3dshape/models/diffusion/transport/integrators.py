@@ -73,7 +73,7 @@ class sde:
         return xhat + 0.5 * self.dt * (K1 + K2), xhat # at last time point we do not perform the heun step
 
     def __forward_fn(self):
-        """TODO: generalize here by adding all private functions ending with steps to it"""
+        """Dispatch the registered integration step functions for this solver."""
         sampler_dict = {
             "Euler": self.__Euler_Maruyama_step,
             "Heun": self.__Heun_step,

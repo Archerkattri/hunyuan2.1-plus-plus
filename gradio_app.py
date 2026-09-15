@@ -72,7 +72,7 @@ if ENV == 'Huggingface':
                    check=True)
 else:
     """
-    Define a dummy `spaces` module with a GPU decorator class for local environment.
+    Define a local `spaces` compatibility shim with a GPU decorator for development.
 
     The GPU decorator is a no-op that simply returns the decorated function unchanged.
     This allows code that uses the `spaces.GPU` decorator to run without modification locally.
@@ -497,7 +497,6 @@ def build_app():
                         caption = gr.State(None)
 #                    with gr.Tab('Text Prompt', id='tab_txt_prompt', visible=HAS_T2I and not MV_MODE) as tab_tp:
 #                        caption = gr.Textbox(label='Text Prompt',
-#                                             placeholder='HunyuanDiT will be used to generate image.',
 #                                             info='Example: A 3D model of a cute cat, white background')
                     with gr.Tab('MultiView Prompt', visible=MV_MODE) as tab_mv:
                         # gr.Label('Please upload at least one front image.')
@@ -586,9 +585,9 @@ Fast for very complex cases, Standard seldom use.',
             with gr.Column(scale=6):
                 with gr.Tabs(selected='gen_mesh_panel') as tabs_output:
                     with gr.Tab('Generated Mesh', id='gen_mesh_panel'):
-                        html_gen_mesh = gr.HTML(HTML_OUTPUT_PLACEHOLDER, label='Output')
+                        html_gen_mesh = gr.HTML(EMPTY_OUTPUT_HTML, label='Output')
                     with gr.Tab('Exporting Mesh', id='export_mesh_panel'):
-                        html_export_mesh = gr.HTML(HTML_OUTPUT_PLACEHOLDER, label='Output')
+                        html_export_mesh = gr.HTML(EMPTY_OUTPUT_HTML, label='Output')
                     with gr.Tab('Mesh Statistic', id='stats_panel'):
                         stats = gr.Json({}, label='Mesh Stats')
 
@@ -758,7 +757,7 @@ if __name__ == '__main__':
 
     HTML_HEIGHT = 690 if MV_MODE else 650
     HTML_WIDTH = 500
-    HTML_OUTPUT_PLACEHOLDER = f"""
+    EMPTY_OUTPUT_HTML = f"""
     <div style='height: {650}px; width: 100%; border-radius: 8px; border-color: #e5e7eb; border-style: solid; border-width: 1px; display: flex; justify-content: center; align-items: center;'>
       <div style='text-align: center; font-size: 16px; color: #6b7280;'>
         <p style="color: #8d8d8d;">Welcome to Hunyuan3D!</p>

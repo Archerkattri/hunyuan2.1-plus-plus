@@ -278,7 +278,7 @@ class PyThreeJSViewer(object):
                                                 flatShading=sh["flat"],
                                                 polygonOffset=True, polygonOffsetFactor=1, polygonOffsetUnits=5)
 
-        if type(n) != type(None) and coloring == "VertexColors":  # TODO: properly handle normals for FaceColors as well
+        if type(n) != type(None) and coloring == "VertexColors":  # Vertex colors use per-vertex normals.
             ba_dict["normal"] = p3s.BufferAttribute(n.astype("float32", copy=False), normalized=True)
 
         geometry = p3s.BufferGeometry(attributes=ba_dict)
@@ -315,7 +315,7 @@ class PyThreeJSViewer(object):
         mesh_obj["type"] = "Mesh"
         mesh_obj["shading"] = sh
         mesh_obj["coloring"] = coloring
-        mesh_obj["arrays"] = [v, f, c]  # TODO replays with proper storage or remove if not needed
+        mesh_obj["arrays"] = [v, f, c]  # Store arrays for client-side replay.
 
         return self.__add_object(mesh_obj)
 

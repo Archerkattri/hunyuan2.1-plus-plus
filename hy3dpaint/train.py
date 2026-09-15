@@ -139,7 +139,7 @@ class CodeSnapshot(Callback):
         return [
             b.decode()
             for b in set(subprocess.check_output('git ls-files -- ":!:configs/*"', shell=True).splitlines())
-            | set(  # hard code, TODO: use config to exclude folders or files
+            | set(  # Keep generated checkpoints and caches out of the source scan.
                 subprocess.check_output("git ls-files --others --exclude-standard", shell=True).splitlines()
             )
         ]

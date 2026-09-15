@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "project": "hunyuan2.1-plus-plus",
+  "commit": "9efd760fbec8ab490e68b330225ea1fab10de7fd",
+  "base_model": "Hunyuan3D-2.1",
+  "pipeline": "hy3dshape.hy3dshape.pipelines",
+  "stage": "shape-generation flow-matching denoise loop",
+  "method": "HiCache++ DMD/Prony with Hermite fallback",
+  "cfg_site": "post-CFG-combined velocity; adaptive-CFG index uses diffusion step i",
+  "configuration": {
+    "interval": null,
+    "first_enhance": null,
+    "end_enhance": null,
+    "history": null,
+    "max_order": null,
+    "sigma": null,
+    "num_inference_steps": null,
+    "guidance_scale": null,
+    "adaptive_cfg": null
+  },
+  "acceptance": {
+    "status": "not-run",
+    "checkpoint": null,
+    "dataset_or_input": null,
+    "seeds": [],
+    "baseline_latency_ms": null,
+    "cached_latency_ms": null,
+    "speedup": null,
+    "metric": "Toys4K F-score@0.05 against uncached output",
+    "quality_vs_uncached": null,
+    "reason": "No model weights or GPU inference were run in this bounded packet."
+  },
+  "provenance": {
+    "historical_claims_reused_as_current_validation": false,
+    "notes": "Fill from paired uncached/DMD runs with explicit cache and adaptive-CFG run identities."
+  }
+}
