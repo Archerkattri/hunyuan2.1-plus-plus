@@ -3,6 +3,18 @@
 All notable changes, per version. Auto-generated from git tags by
 `third_party/launch_materials/gen_changelogs.sh`; do not edit by hand.
 
+## v0.1.1 — 2026-09-17
+
+- Enforce LF line endings with .gitattributes (2c2a912)
+- docs: replace interim README visuals (8b7a39e)
+- docs: refresh README visuals (ddfbbb3)
+- wip: release readiness pass (1230310)
+- ci: update actions to Node 24 runtimes (9efd760)
+- ci: add clean source integrity checks (912f356)
+- README: live GitHub downloads badge (4cc7f69)
+- README: release/license badges (57ec239)
+- docs: sort CHANGELOG under version headers (19c20e2)
+
 ## v0.1.0 — 2026-06-11
 
 - docs: add per-version CHANGELOG (081ecce)
