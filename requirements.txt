@@ -42,7 +42,7 @@ pyyaml==6.0.2
 configargparse==1.7
 
 # Web Framework (for demo)
-gradio==5.33.0
+gradio==6.15.1
 fastapi==0.115.12
 uvicorn==0.34.3
 
