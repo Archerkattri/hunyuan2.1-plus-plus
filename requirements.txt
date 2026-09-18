@@ -6,7 +6,7 @@ ninja==1.11.1.1
 pybind11==2.13.4
 
 # Core ML/Deep Learning
-transformers==4.46.0
+transformers==5.10.1
 diffusers==0.30.0
 accelerate==1.1.1
 pytorch-lightning==1.9.5
