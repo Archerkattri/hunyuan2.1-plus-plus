@@ -40,6 +40,7 @@ from constants import (
     API_VERSION, API_CONTACT, API_LICENSE_INFO, API_TAGS_METADATA
 )
 from model_worker import ModelWorker
+from safe_paths import resolve_output_path, validated_uid
 
 # Global variables
 SAVE_DIR = DEFAULT_SAVE_DIR
@@ -164,9 +165,13 @@ async def status(uid: str):
     Returns:
         StatusResponse: Current status of the task and result if completed
     """
+    try:
+        safe_uid = validated_uid(uid)
+    except ValueError:
+        return JSONResponse({"status": "not_found"}, status_code=404)
     # Check for textured file first (preferred output)
-    textured_file_path = os.path.join(SAVE_DIR, f'{uid}_textured.glb')
-    initial_file_path = os.path.join(SAVE_DIR, f'{uid}_initial.glb')
+    textured_file_path = resolve_output_path(SAVE_DIR, f"{safe_uid}_textured.glb")
+    initial_file_path = resolve_output_path(SAVE_DIR, f"{safe_uid}_initial.glb")
     
     #print(f"Checking files: {textured_file_path} ({os.path.exists(textured_file_path)}), {initial_file_path} ({os.path.exists(initial_file_path)})")
     
