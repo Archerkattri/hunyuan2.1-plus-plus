@@ -27,7 +27,8 @@ scikit-image==0.24.0
 rembg==2.0.75
 realesrgan==0.3.0
 tb_nightly==2.18.0a20240726
-basicsr==1.4.2
+# CVE-2024-27763 fix from XPixelGroup/BasicSR#765; replace with a tagged release when available.
+basicsr @ git+https://github.com/XPixelGroup/BasicSR.git@105e93dfc72bbe2dd77cc465dac7b5429c59f4c9
 
 # 3D Mesh Processing
 trimesh==4.4.7
